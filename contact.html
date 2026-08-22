@@ -26,6 +26,140 @@
 
     <div class="card">
       <h2>Send us a message</h2>
+      <form id="contactForm">
+        <div class="field-row">
+          <div class="field">
+            <label for="name">Your name</label>
+            <input id="name" name="name" type="text" placeholder="First and last name" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="cemail">Email address</label>
+            <input id="cemail" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="msg">Your message</label>
+          <textarea id="msg" name="message" rows="4" placeholder="How can we help?" required></textarea>
+        </div>
+        <div class="consent">
+          <label>
+            <input type="checkbox" required>
+            <span>I'm happy for Headwell Clinic to use my details to reply to my enquiry.</span>
+          </label>
+        </div>
+        <div class="placeholder">
+          <span class="tag">Placeholder</span>
+          <div><strong>Consent wording pending legal review.</strong> The final enquiry-consent copy still needs signing off before launch.</div>
+        </div>
+        <div class="btn-row"><button type="submit" class="btn-primary" id="sendBtn">Send message</button></div>
+        <p id="formMsg" style="display:none; margin-top:14px; font-weight:600;"></p>
+      </form>
+    </div>
+
+    <div class="card">
+      <h2>Common questions</h2>
+      <div class="faq">
+        <details>
+          <summary>Is the assessment a diagnosis?</summary>
+          <p>The free check is a screening questionnaire, not a diagnosis. A full assessment is a structured clinical process; a diagnosis is not guaranteed, as it depends on what the assessment finds.</p>
+        </details>
+        <details>
+          <summary>How does the online assessment work?</summary>
+          <p>Everything happens remotely by secure video call with our assessor. There's no need to travel or attend in person.</p>
+        </details>
+        <details>
+          <summary>What does it cost?</summary>
+          <p class="placeholder" style="margin:0;"><span class="tag">Placeholder</span> Pricing to be confirmed.</p>
+        </details>
+        <details>
+          <summary>What if I'm struggling right now?</summary>
+          <p>If you need to talk to someone, the Samaritans are available free, any time, on 116 123. For urgent medical help call NHS 111, and in an emergency call 999.</p>
+        </details>
+      </div>
+      <p style="margin-top:18px;"><a class="muted-link" href="index.html">← Back to home</a></p>
+    </div>
+  </div>
+</main>
+
+<script>
+(function(){
+  var f = document.getElementById('contactForm');
+  if(!f) return;
+  f.addEventListener('submit', function(e){
+    e.preventDefault();
+    var btn = document.getElementById('sendBtn');
+    var msg = document.getElementById('formMsg');
+    btn.disabled = true; btn.textContent = 'Sending…';
+    var body = new URLSearchParams();
+    body.append('name', f.name.value);
+    body.append('email', f.email.value);
+    body.append('message', f.message.value);
+    fetch('https://hook.eu2.make.com/pdez4c0yijvaefvb0o6qtg6w96wy5a4f', { method: 'POST', body: body })
+      .then(function(r){
+        if(!r.ok) throw new Error('bad status');
+        f.reset();
+        msg.style.color = 'var(--teal-dark)';
+        msg.textContent = 'Thanks — your message has been sent. We’ll be in touch soon.';
+        msg.style.display = 'block';
+        btn.textContent = 'Sent';
+      })
+      .catch(function(){
+        msg.style.color = '#a33';
+        msg.textContent = 'Sorry, something went wrong. Please email us directly at sales@headwellclinic.com.';
+        msg.style.display = 'block';
+        btn.disabled = false; btn.textContent = 'Send message';
+      });
+  });
+})();
+</script>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="support-strip">
+      <span>Free support for anyone, any time:</span>
+      <span><strong>Samaritans</strong> 116 123</span>
+      <span><strong>NHS 111</strong></span>
+      <span><strong>Mind</strong> · mind.org.uk</span>
+      <span><strong>ADHD UK</strong> · adhduk.co.uk</span>
+      <span>Emergency <strong>999</strong></span>
+    </div>
+    <div class="foot-legal">
+      <span class="foot-brand">Headwell Clinic</span> — private ADHD assessments for adults. The free check is a screening questionnaire, not a diagnosis, and this site is not a substitute for professional medical advice.
+      <div class="foot-links"><a href="index.html">Home</a><a href="contact.html">Contact</a><a href="#">Privacy policy</a></div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact us — Headwell Clinic</title>
+<meta name="description" content="Questions about a private ADHD assessment? Contact the Headwell Clinic team.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap site-inner">
+    <a class="brand" href="index.html"><span class="mark">H</span><span>Headwell Clinic<small>Adult ADHD Assessment</small></span></a>
+    <a class="brand-link" href="index.html">← Home</a>
+  </div>
+</header>
+
+<main>
+  <div class="read">
+    <div class="page-head">
+      <span class="eyebrow">We're happy to help</span>
+      <h1>Not sure? Contact us</h1>
+      <p class="sub">There's no pressure to book. If you'd like to ask something first, drop us a message or take a look at the common questions below.</p>
+    </div>
+
+    <div class="card">
+      <h2>Send us a message</h2>
       <div class="field-row">
         <div class="field">
           <label for="name">Your name</label>
