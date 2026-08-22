@@ -57,6 +57,117 @@
     <div class="card">
       <h2>Where should we send your result?</h2>
       <p>Enter your details and we'll show your result on the next screen. We'll only use these to give you your result and to follow up if you ask us to.</p>
+      <form onsubmit="return goResult(event)">
+        <div class="field-row">
+          <div class="field">
+            <label for="name">Full name</label>
+            <input id="name" name="name" type="text" placeholder="First and last name" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="email">Email address</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+          </div>
+        </div>
+
+        <div class="consent">
+          <label>
+            <input type="checkbox" required>
+            <span>I agree that Headwell Clinic can process my answers and contact details, which include health-related information, to generate and send me my result. I understand this is separate from any marketing and that I can withdraw at any time.</span>
+          </label>
+        </div>
+        <div class="placeholder">
+          <span class="tag">Placeholder</span>
+          <div><strong>Consent wording &amp; DPIA pending legal review.</strong> This explicit-consent copy for special-category (health) data under UK GDPR, and the Data Protection Impact Assessment, need finalising and signing off before launch.</div>
+        </div>
+
+        <div class="btn-row">
+          <button type="submit" class="btn-primary">See my result</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
+
+<script>function goResult(e){e.preventDefault();window.location.href='results.html';}</script>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="support-strip">
+      <span>Free support for anyone, any time:</span>
+      <span><strong>Samaritans</strong> 116 123</span>
+      <span><strong>NHS 111</strong></span>
+      <span><strong>Mind</strong> · mind.org.uk</span>
+      <span><strong>ADHD UK</strong> · adhduk.co.uk</span>
+      <span>Emergency <strong>999</strong></span>
+    </div>
+    <div class="foot-legal">
+      <span class="foot-brand">Headwell Clinic</span> — private ADHD assessments for adults. The free check is a screening questionnaire, not a diagnosis, and this site is not a substitute for professional medical advice.
+      <div class="foot-links"><a href="index.html">Home</a><a href="contact.html">Contact</a><a href="#">Privacy policy</a></div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The free check — Headwell Clinic</title>
+<meta name="description" content="Start Headwell Clinic's free, confidential online ADHD self-check.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap site-inner">
+    <a class="brand" href="index.html"><span class="mark">H</span><span>Headwell Clinic<small>Adult ADHD Assessment</small></span></a>
+    <a class="brand-link" href="index.html">← Home</a>
+  </div>
+</header>
+
+<nav class="progress" aria-label="Progress">
+  <ol>
+    <li class="active"><span class="dot">1</span> Free check</li>
+    <li><span class="dot">2</span> Your result</li>
+    <li><span class="dot">3</span> Should you get assessed?</li>
+    <li><span class="dot">4</span> Book</li>
+  </ol>
+</nav>
+
+<main>
+  <div class="read">
+    <div class="page-head">
+      <span class="eyebrow">Step 1 of 4 · Free check</span>
+      <h1>The free ADHD check</h1>
+      <p class="sub">A short, confidential set of questions about attention and focus. It takes about three minutes, and there's nothing to pay.</p>
+    </div>
+
+    <div class="card">
+      <div class="placeholder">
+        <span class="tag">Placeholder</span>
+        <div><strong>Screening questions pending.</strong> The final questions will be Headwell Clinic's own screening questionnaire. We are not reproducing the WHO ASRS here while its commercial licensing is confirmed, so the items below are illustrative placeholders only and are not scored.</div>
+      </div>
+
+      <div class="q">
+        <p>1. How often do you have trouble wrapping up the final details of a project once the challenging parts are done?</p>
+        <div class="scale"><span>Never</span><span>Rarely</span><span>Sometimes</span><span>Often</span><span>Very often</span></div>
+      </div>
+      <div class="q">
+        <p>2. How often do you have difficulty getting things in order when a task requires organisation?</p>
+        <div class="scale"><span>Never</span><span>Rarely</span><span>Sometimes</span><span>Often</span><span>Very often</span></div>
+      </div>
+      <div class="q">
+        <p>3. How often are you distracted by activity or noise around you?</p>
+        <div class="scale"><span>Never</span><span>Rarely</span><span>Sometimes</span><span>Often</span><span>Very often</span></div>
+      </div>
+      <p class="tight" style="color:var(--ink-soft); font-size:.9rem;">…the full questionnaire will continue here once finalised.</p>
+    </div>
+
+    <div class="card">
+      <h2>Where should we send your result?</h2>
+      <p>Enter your details and we'll show your result on the next screen. We'll only use these to give you your result and to follow up if you ask us to.</p>
       <div class="field-row">
         <div class="field">
           <label for="email">Email address</label>
